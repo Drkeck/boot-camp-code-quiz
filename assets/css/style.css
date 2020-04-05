@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    list-style: none;
+}
+
+div {
+text-align: center;
+padding: 40px;
+}
+
+.title, .info  {
+    margin-top: 10px;    
+}
+
+section {
+    padding-top: 5px;
+}
+
+#quiz {
+    flex: 1 30%;
+    list-style: none;
+    text-align: center;
+}
+
+
+.btn {
+    margin: 10px;
+    outline: none;
+    border: none;
+    padding: 5px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    position: relative;
+    width: 12em;
+    height: 2em;
+    top: -3px;
+    background-color: indigo;
+    color: ivory;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: mediumorchid;
+    top: -2px;
+}
