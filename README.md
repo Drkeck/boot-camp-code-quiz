@@ -10,4 +10,6 @@ and i hope to make more amazing things in the future!
 some of the save numbers don't save super accurately unfortunatly.
 
 
+![imageOfQuiz](./assets/img/quz.gif)
+
 
