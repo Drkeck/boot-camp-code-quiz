@@ -96,7 +96,7 @@ var gameOver = function() {
 
 var submitInit = function() {
     var submitInit = document.querySelector(".text-input").value;
-    var submitScore = Math.max(0, timeLeft + score);
+    var submitScore = timeLeft + score;
 
     var userscore = {
         name: submitInit,
