@@ -36,7 +36,6 @@ var questionOne = function() {
     startBtn.remove();
     var tempAnsrs = quiz[v].answers;
     quizAnser = quiz[v].correctAnswer;
-    debugger
     for (var i = 0; i < 4; i++) {
         listEl = document.createElement("li");
         listEl.className = "btn-cont";
@@ -53,7 +52,6 @@ var questionOne = function() {
 
 var ButtonHandler = function(event) {
     var targetEl = event.target;
-    debugger
     if (targetEl.matches(".quizbtn")) {
         if (targetEl.textContent === quizAnser) {
             quizScore += 10;
@@ -72,16 +70,58 @@ var ButtonHandler = function(event) {
         v++
         questionOne();
     }
-}
+    if (targetEl.matches(".submit")) {
+        submitInit();
+    }
+}   
 
 var gameOver = function() {
     score = Math.max(0, timeLeft + quizScore);
     bigText.textContent = "Game Over";
     smallText.textContent = "Your score: " + score;
-    var initials = createElement("input");
-    
+    var initials = document.createElement("input");
+    initials.setAttribute("type", "text");
+    initials.className = "text-input";
+    initials.setAttribute("placeholder", "Your initials.");
+    quizBox.appendChild(initials);
+
+    var submit = document.createElement("button");
+    submit.className = "btn submit";
+    submit.setAttribute("id", "save-task");
+    submit.setAttribute("type", "submit");
+    submit.textContent = "Submit"
+    quizBox.appendChild(submit)
 
 }
+
+var submitInit = function() {
+    var submitInit = document.querySelector(".text-input").value;
+    var submitScore = Math.max(0, timeLeft + score);
+
+    var userscore = {
+        name: submitInit,
+        total: submitScore
+    }
+
+    leaderBoard.push(userscore);
+    localStorage.setItem("highscores", JSON.stringify(leaderBoard));
+}
+
+var loadLastGame = function() {
+    var savedGame = localStorage.getItem("highscores");
+    if (!savedGame) {
+        return false
+    } else {
+        savedGame = JSON.parse(savedGame);
+        for (var i = 0; i < savedGame.length; i++) {
+            var lastGame = document.createElement("li");
+            lastGame.className = "last-game";
+            lastGame.textContent = savedGame[i].name + " - " + savedGame[i].total;
+            highscore.appendChild(lastGame);
+        }
+    }
+}
+
 
 var quiz = [
     {
@@ -131,3 +171,5 @@ var quiz = [
     ];
     startBtn.addEventListener("click", startQuiz);
     quizBox.addEventListener("click", ButtonHandler);
+
+    loadLastGame();

@@ -33,6 +33,16 @@ section {
     text-align: center;
 }
 
+.text-input {
+    width: 24em;
+    height: 2em;
+    border-radius: 10px;
+    border-color: indigo;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.123);
+    font-size: 1.5rem;
+    top: -3px;
+}
 
 .btn {
     margin: 10px;
@@ -53,4 +63,11 @@ section {
 .btn:hover {
     background-color: mediumorchid;
     top: -2px;
+}
+
+#high-score {
+    list-style: none;
+    font-size: medium;
+    font-weight: bold;
+    margin-left: 20px;
 }
